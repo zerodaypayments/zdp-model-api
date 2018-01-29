@@ -1,6 +1,8 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class AddressDetailsResponse implements Serializable {
@@ -11,16 +13,16 @@ public class AddressDetailsResponse implements Serializable {
 
 	private String address;
 
-	private double balance;
+	private BigDecimal balance;
 
 	public AddressDetailsResponse() {
 	}
 
-	public double getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
 	}
 
@@ -46,6 +48,11 @@ public class AddressDetailsResponse implements Serializable {
 
 	public void setAddress(String address) {
 		this.address = address;
+	}
+
+	@Override
+	public String toString() {
+		return "AddressDetailsResponse [secret=" + secret + ", privateKey=" + Arrays.toString(privateKey) + ", address=" + address + ", balance=" + balance + "]";
 	}
 
 }

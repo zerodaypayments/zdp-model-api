@@ -14,6 +14,7 @@ public class TransferResponse implements Serializable {
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
 	public static final String ERROR_INSUFFICIENT_FUNDS = "INSUFFICIENT_FUNDS";
 	public static final String ERROR_SYSTEM = "SYSTEM_ERROR";
+	public static final String ERROR_INACTIVE_ADDRESS = "INACTIVE_ADDRESS";
 
 	private String error = StringUtils.EMPTY;
 

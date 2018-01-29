@@ -1,6 +1,7 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @SuppressWarnings("serial")
@@ -10,11 +11,7 @@ public class TransferDetails implements Serializable {
 
 	private Date date;
 
-	private double amount;
-
-	private float fee;
-
-	private double totalAmount;
+	private BigDecimal amount;
 
 	private String from;
 
@@ -40,28 +37,12 @@ public class TransferDetails implements Serializable {
 		this.date = date;
 	}
 
-	public double getAmount() {
+	public BigDecimal getAmount() {
 		return amount;
 	}
 
-	public void setAmount(double amount) {
+	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
-	}
-
-	public float getFee() {
-		return fee;
-	}
-
-	public void setFee(float fee) {
-		this.fee = fee;
-	}
-
-	public double getTotalAmount() {
-		return totalAmount;
-	}
-
-	public void setTotalAmount(double totalAmount) {
-		this.totalAmount = totalAmount;
 	}
 
 	public String getFrom() {
@@ -98,9 +79,7 @@ public class TransferDetails implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransactionDetailsResponse [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", fee=" + fee
-				+ ", totalAmount=" + totalAmount + ", from=" + from + ", to=" + to + ", senderRef=" + senderRef
-				+ ", recepientRef=" + recepientRef + "]";
+		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", senderRef=" + senderRef + ", recepientRef=" + recepientRef + "]";
 	}
 
 }

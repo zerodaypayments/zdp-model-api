@@ -1,6 +1,8 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.util.Arrays;
 import java.util.Date;
 
 @SuppressWarnings("serial")
@@ -10,7 +12,7 @@ public class TransferRequest implements Serializable {
 
 	private String toAddress;
 
-	private double amountToSend;
+	private BigDecimal amount;
 
 	private String senderReference;
 
@@ -61,12 +63,12 @@ public class TransferRequest implements Serializable {
 		this.toAddress = toAddress;
 	}
 
-	public double getAmountToSend() {
-		return amountToSend;
+	public BigDecimal getAmount() {
+		return amount;
 	}
 
-	public void setAmountToSend(double amountToSend) {
-		this.amountToSend = amountToSend;
+	public void setAmount(BigDecimal amount) {
+		this.amount = amount;
 	}
 
 	public byte[] getSignature() {
@@ -79,7 +81,7 @@ public class TransferRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransferRequest [fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amountToSend=" + amountToSend + ", senderReference=" + senderReference + ", recipientReference=" + recipientReference + ", date=" + date + "]";
+		return "TransferRequest [fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amount=" + amount + ", senderReference=" + senderReference + ", recipientReference=" + recipientReference + ", date=" + date + ", signature=" + Arrays.toString(signature) + "]";
 	}
 
 }

@@ -1,6 +1,7 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
 import java.util.Date;
 
 @SuppressWarnings("serial")
@@ -10,7 +11,7 @@ public class BalanceResponse implements Serializable {
 
 	private Date date = new Date();
 
-	private double balance;
+	private BigDecimal balance;
 
 	public String getAddress() {
 		return address;
@@ -28,12 +29,17 @@ public class BalanceResponse implements Serializable {
 		this.date = date;
 	}
 
-	public double getBalance() {
+	public BigDecimal getBalance() {
 		return balance;
 	}
 
-	public void setBalance(double balance) {
+	public void setBalance(BigDecimal balance) {
 		this.balance = balance;
+	}
+
+	@Override
+	public String toString() {
+		return "BalanceResponse [address=" + address + ", date=" + date + ", balance=" + balance + "]";
 	}
 
 }
