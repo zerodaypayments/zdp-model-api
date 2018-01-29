@@ -12,7 +12,7 @@ public class TransferDetails implements Serializable {
 
 	private double amount;
 
-	private double fee;
+	private float fee;
 
 	private double totalAmount;
 
@@ -48,11 +48,11 @@ public class TransferDetails implements Serializable {
 		this.amount = amount;
 	}
 
-	public double getFee() {
+	public float getFee() {
 		return fee;
 	}
 
-	public void setFee(double fee) {
+	public void setFee(float fee) {
 		this.fee = fee;
 	}
 
