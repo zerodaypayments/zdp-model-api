@@ -8,9 +8,11 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class TransferRequest implements Serializable {
 
-	private String fromAddress;
+	private byte[] publicKey;
 
-	private String toAddress;
+	private byte[] signedFromAddress;
+
+	private byte[] toAddressEncrypted;
 
 	private BigDecimal amount;
 
@@ -20,8 +22,15 @@ public class TransferRequest implements Serializable {
 
 	private Date date;
 
-	// Signed SHA-512 of "from + to" combination
 	private byte[] signature;
+
+	public byte[] getSignature() {
+		return signature;
+	}
+
+	public void setSignature(byte[] signature) {
+		this.signature = signature;
+	}
 
 	public Date getDate() {
 		return date;
@@ -47,22 +56,6 @@ public class TransferRequest implements Serializable {
 		this.recipientReference = recipientReference;
 	}
 
-	public String getFromAddress() {
-		return fromAddress;
-	}
-
-	public void setFromAddress(String fromAddress) {
-		this.fromAddress = fromAddress;
-	}
-
-	public String getToAddress() {
-		return toAddress;
-	}
-
-	public void setToAddress(String toAddress) {
-		this.toAddress = toAddress;
-	}
-
 	public BigDecimal getAmount() {
 		return amount;
 	}
@@ -71,17 +64,33 @@ public class TransferRequest implements Serializable {
 		this.amount = amount;
 	}
 
-	public byte[] getSignature() {
-		return signature;
+	public byte[] getPublicKey() {
+		return publicKey;
 	}
 
-	public void setSignature(byte[] signature) {
-		this.signature = signature;
+	public void setPublicKey(byte[] publicKey) {
+		this.publicKey = publicKey;
+	}
+
+	public byte[] getSignedFromAddress() {
+		return signedFromAddress;
+	}
+
+	public void setSignedFromAddress(byte[] signedFromAddress) {
+		this.signedFromAddress = signedFromAddress;
+	}
+
+	public byte[] getToAddressEncrypted() {
+		return toAddressEncrypted;
+	}
+
+	public void setToAddressEncrypted(byte[] toAddressEncrypted) {
+		this.toAddressEncrypted = toAddressEncrypted;
 	}
 
 	@Override
 	public String toString() {
-		return "TransferRequest [fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amount=" + amount + ", senderReference=" + senderReference + ", recipientReference=" + recipientReference + ", date=" + date + ", signature=" + Arrays.toString(signature) + "]";
+		return "TransferRequest [publicKey=" + Arrays.toString(publicKey) + ", signedFromAddress=" + Arrays.toString(signedFromAddress) + ", toAddressEncrypted=" + Arrays.toString(toAddressEncrypted) + ", amount=" + amount + ", senderReference=" + senderReference + ", recipientReference=" + recipientReference + ", date=" + date + "]";
 	}
 
 }

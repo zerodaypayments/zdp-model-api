@@ -1,30 +1,38 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class BalanceRequest implements Serializable {
 
-	private String address;
+	private byte[] publicKey;
 
-	private byte[] signature;
+	private byte[] signedAddress;
 
 	public BalanceRequest() {
 		super();
 	}
 
-	public BalanceRequest(String address, byte[] signature) {
-		super();
-		this.address = address;
-		this.signature = signature;
+	public byte[] getPublicKey() {
+		return publicKey;
 	}
 
-	public String getAddress() {
-		return address;
+	public void setPublicKey(byte[] publicKey) {
+		this.publicKey = publicKey;
 	}
 
-	public byte[] getSignature() {
-		return signature;
+	public byte[] getSignedAddress() {
+		return signedAddress;
+	}
+
+	public void setSignedAddress(byte[] signedAddress) {
+		this.signedAddress = signedAddress;
+	}
+
+	@Override
+	public String toString() {
+		return "BalanceRequest [publicKey=" + Arrays.toString(publicKey) + ", signedAddress=" + Arrays.toString(signedAddress) + "]";
 	}
 
 }
