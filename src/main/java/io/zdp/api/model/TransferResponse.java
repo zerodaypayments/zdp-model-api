@@ -8,7 +8,9 @@ import org.apache.commons.lang3.StringUtils;
 @SuppressWarnings("serial")
 public class TransferResponse implements Serializable {
 
-	public static final String ERROR_INVALID_ADDRESS = "INVALID_ADDRESS";
+	public static final String ERROR_INVALID_TO_ADDRESS = "INVALID_TO_ADDRESS";
+	public static final String ERROR_INVALID_FROM_ADDRESS = "INVALID_FROM_ADDRESS";
+	
 	public static final String ERROR_INVALID_ACCOUNT = "INVALID_ACCOUNT";
 	public static final String ERROR_INVALID_AMOUNT = "INVALID_AMOUNT";
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
@@ -23,8 +25,6 @@ public class TransferResponse implements Serializable {
 	private String uuid = StringUtils.EMPTY;
 
 	private Date date = new Date();
-
-	private long time = date.getTime();
 
 	public static TransferResponse error(String msg) {
 		TransferResponse resp = new TransferResponse();
@@ -65,17 +65,9 @@ public class TransferResponse implements Serializable {
 		this.date = date;
 	}
 
-	public long getTime() {
-		return time;
-	}
-
-	public void setTime(long time) {
-		this.time = time;
-	}
-
 	@Override
 	public String toString() {
-		return "TransferResponse [error=" + error + ", submitted=" + submitted + ", uuid=" + uuid + ", date=" + date + ", time=" + time + "]";
+		return "TransferResponse [error=" + error + ", submitted=" + submitted + ", uuid=" + uuid + ", date=" + date + "]";
 	}
 
 }
