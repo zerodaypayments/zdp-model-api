@@ -17,9 +17,9 @@ public class TransferDetails implements Serializable {
 
 	private String to;
 
-	private String senderRef;
+	private String memo;
 
-	private String recepientRef;
+	private String error;
 
 	public String getUuid() {
 		return uuid;
@@ -61,25 +61,25 @@ public class TransferDetails implements Serializable {
 		this.to = to;
 	}
 
-	public String getSenderRef() {
-		return senderRef;
+	public String getMemo() {
+		return memo;
 	}
 
-	public void setSenderRef(String senderRef) {
-		this.senderRef = senderRef;
+	public void setMemo(String memo) {
+		this.memo = memo;
 	}
 
-	public String getRecepientRef() {
-		return recepientRef;
+	public String getError() {
+		return error;
 	}
 
-	public void setRecepientRef(String recepientRef) {
-		this.recepientRef = recepientRef;
+	public void setError(String error) {
+		this.error = error;
 	}
 
 	@Override
 	public String toString() {
-		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", senderRef=" + senderRef + ", recepientRef=" + recepientRef + "]";
+		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + "]";
 	}
 
 }
