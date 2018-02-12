@@ -11,7 +11,7 @@ public class TransferDetails implements Serializable {
 
 	private Date date;
 
-	private BigDecimal amount;
+	private String amount;
 
 	private String from;
 
@@ -37,11 +37,11 @@ public class TransferDetails implements Serializable {
 		this.date = date;
 	}
 
-	public BigDecimal getAmount() {
+	public String getAmount() {
 		return amount;
 	}
 
-	public void setAmount(BigDecimal amount) {
+	public void setAmount(String amount) {
 		this.amount = amount;
 	}
 

@@ -10,7 +10,6 @@ public class TransferResponse implements Serializable {
 
 	public static final String ERROR_INVALID_TO_ADDRESS = "INVALID_TO_ADDRESS";
 	public static final String ERROR_INVALID_FROM_ADDRESS = "INVALID_FROM_ADDRESS";
-	
 	public static final String ERROR_INVALID_ACCOUNT = "INVALID_ACCOUNT";
 	public static final String ERROR_INVALID_AMOUNT = "INVALID_AMOUNT";
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
