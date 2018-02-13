@@ -7,19 +7,9 @@ import java.util.Date;
 @SuppressWarnings("serial")
 public class BalanceResponse implements Serializable {
 
-	private String address;
-
 	private Date date = new Date();
 
 	private BigDecimal balance;
-
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
 
 	public Date getDate() {
 		return date;
@@ -39,7 +29,7 @@ public class BalanceResponse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "BalanceResponse [address=" + address + ", date=" + date + ", balance=" + balance + "]";
+		return "BalanceResponse [date=" + date + ", balance=" + balance + "]";
 	}
 
 }
