@@ -49,7 +49,7 @@ public class TransferResponse implements Serializable {
 	}
 
 	public String getUuid() {
-		return uuid;
+		return uuid.toUpperCase();
 	}
 
 	public void setUuid(String uuid) {

@@ -1,7 +1,6 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
-import java.math.BigDecimal;
 import java.util.Date;
 
 @SuppressWarnings("serial")
@@ -20,6 +19,16 @@ public class TransferDetails implements Serializable {
 	private String memo;
 
 	private String error;
+
+	private String fee;
+
+	public String getFee() {
+		return fee;
+	}
+
+	public void setFee(String fee) {
+		this.fee = fee;
+	}
 
 	public String getUuid() {
 		return uuid;
@@ -79,7 +88,7 @@ public class TransferDetails implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + "]";
+		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", error=" + error + ", fee=" + fee + "]";
 	}
 
 }

@@ -9,7 +9,7 @@ public class BalanceResponse implements Serializable {
 
 	private Date date = new Date();
 
-	private BigDecimal balance;
+	private String balance;
 
 	public Date getDate() {
 		return date;
@@ -19,12 +19,20 @@ public class BalanceResponse implements Serializable {
 		this.date = date;
 	}
 
-	public BigDecimal getBalance() {
+	public String getBalance() {
 		return balance;
 	}
 
-	public void setBalance(BigDecimal balance) {
+	public BigDecimal getBalanceAsBigDecimal() {
+		return new BigDecimal(balance);
+	}
+
+	public void setBalance(String balance) {
 		this.balance = balance;
+	}
+
+	public void setBalance(BigDecimal balance) {
+		this.balance = balance.toPlainString();
 	}
 
 	@Override
