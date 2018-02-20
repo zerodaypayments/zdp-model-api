@@ -1,11 +1,19 @@
 package io.zdp.api.model;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 @SuppressWarnings("serial")
 public class Seed implements Serializable {
 
 	private String seed;
+
+	private List<String> mnemonics = new ArrayList<>();
+
+	public List<String> getMnemonics() {
+		return mnemonics;
+	}
 
 	public Seed() {
 		super();
