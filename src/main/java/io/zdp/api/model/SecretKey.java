@@ -9,7 +9,17 @@ public class SecretKey implements Serializable {
 
 	private String secretKey;
 
+	private String language;
+
 	private List<String> mnemonics = new ArrayList<>();
+
+	public String getLanguage() {
+		return language;
+	}
+
+	public void setLanguage(String language) {
+		this.language = language;
+	}
 
 	public List<String> getMnemonics() {
 		return mnemonics;
