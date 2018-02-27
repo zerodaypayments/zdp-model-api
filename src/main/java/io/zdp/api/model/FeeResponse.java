@@ -35,4 +35,9 @@ public class FeeResponse implements Serializable {
 		this.date = date;
 	}
 
+	@Override
+	public String toString() {
+		return "FeeResponse [fee=" + fee + ", date=" + date + "]";
+	}
+
 }

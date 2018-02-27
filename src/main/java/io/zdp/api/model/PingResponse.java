@@ -24,4 +24,9 @@ public class PingResponse implements Serializable {
 		this.time = time;
 	}
 
+	@Override
+	public String toString() {
+		return "PingResponse [time=" + time + "]";
+	}
+
 }

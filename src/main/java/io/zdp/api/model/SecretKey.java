@@ -5,9 +5,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class Seed implements Serializable {
+public class SecretKey implements Serializable {
 
-	private String seed;
+	private String secretKey;
 
 	private List<String> mnemonics = new ArrayList<>();
 
@@ -15,26 +15,26 @@ public class Seed implements Serializable {
 		return mnemonics;
 	}
 
-	public Seed() {
+	public SecretKey() {
 		super();
 	}
 
-	public Seed(String seed) {
+	public SecretKey(String seed) {
 		super();
-		this.seed = seed;
+		this.secretKey = seed;
 	}
 
-	public String getSeed() {
-		return seed;
+	public String getSecretKey() {
+		return secretKey;
 	}
 
-	public void setSeed(String seed) {
-		this.seed = seed;
+	public void setSecretKey(String secretKey) {
+		this.secretKey = secretKey;
 	}
 
 	@Override
 	public String toString() {
-		return "SeedResponse [seed=" + seed + "]";
+		return "SecretKey [secretKey=" + secretKey + "]";
 	}
 
 }
