@@ -6,7 +6,7 @@ import java.util.Arrays;
 @SuppressWarnings("serial")
 public class AccountRequest implements Serializable {
 
-	private byte[] publicKey;
+	private String publicKey;
 
 	private byte[] signedAddress;
 
@@ -14,11 +14,11 @@ public class AccountRequest implements Serializable {
 		super();
 	}
 
-	public byte[] getPublicKey() {
+	public String getPublicKey() {
 		return publicKey;
 	}
 
-	public void setPublicKey(byte[] publicKey) {
+	public void setPublicKey(String publicKey) {
 		this.publicKey = publicKey;
 	}
 
@@ -32,7 +32,7 @@ public class AccountRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "AccountRequest [publicKey=" + Arrays.toString(publicKey) + ", signedAddress=" + Arrays.toString(signedAddress) + "]";
+		return "AccountRequest [publicKey=" + publicKey + ", signedAddress=" + Arrays.toString(signedAddress) + "]";
 	}
 
 }
