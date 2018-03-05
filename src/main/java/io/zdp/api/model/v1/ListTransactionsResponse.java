@@ -5,11 +5,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class GetTransactionsResponse extends BaseResponseObject {
+public class ListTransactionsResponse extends BaseResponseObject {
 
 	public static class Transaction implements Serializable {
+
 		private String uuid;
+
 		private String time;
+
 		private String amount;
 
 		public String getUuid() {
@@ -56,7 +59,7 @@ public class GetTransactionsResponse extends BaseResponseObject {
 
 	@Override
 	public String getType() {
-		return "get-transactions";
+		return "list-transactions";
 	}
 
 }

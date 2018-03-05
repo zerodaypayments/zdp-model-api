@@ -3,7 +3,7 @@ package io.zdp.api.model.v1;
 import java.io.Serializable;
 
 @SuppressWarnings("serial")
-public class TransferRequest implements Serializable {
+public class SubmitTransactionRequest implements Serializable {
 
 	private String publicKey;
 

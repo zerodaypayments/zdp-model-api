@@ -5,7 +5,7 @@ import java.util.Date;
 import org.apache.commons.lang3.StringUtils;
 
 @SuppressWarnings("serial")
-public class TransferResponse extends BaseResponseObject {
+public class SubmitTransactionResponse extends BaseResponseObject {
 
 	public static final String ERROR_INVALID_TO_ADDRESS = "INVALID_TO_ADDRESS";
 	public static final String ERROR_INVALID_FROM_ADDRESS = "INVALID_FROM_ADDRESS";
@@ -22,8 +22,8 @@ public class TransferResponse extends BaseResponseObject {
 
 	private String txUuid;
 
-	public static TransferResponse error(String msg) {
-		TransferResponse resp = new TransferResponse();
+	public static SubmitTransactionResponse error(String msg) {
+		SubmitTransactionResponse resp = new SubmitTransactionResponse();
 		resp.setError(msg);
 		resp.setSubmitted(false);
 		return resp;
@@ -76,7 +76,7 @@ public class TransferResponse extends BaseResponseObject {
 
 	@Override
 	public String getType() {
-		return "transfer";
+		return "submit-transaction";
 	}
 
 }

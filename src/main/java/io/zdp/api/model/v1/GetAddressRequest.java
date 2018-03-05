@@ -7,6 +7,20 @@ public class GetAddressRequest implements Serializable {
 
 	private String publicKey;
 
+	private byte[] signature;
+
+	public GetAddressRequest() {
+		super();
+	}
+
+	public byte[] getSignature() {
+		return signature;
+	}
+
+	public void setSignature(byte[] signature) {
+		this.signature = signature;
+	}
+
 	public String getPublicKey() {
 		return publicKey;
 	}

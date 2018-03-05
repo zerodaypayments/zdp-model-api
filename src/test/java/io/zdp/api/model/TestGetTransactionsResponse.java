@@ -8,14 +8,14 @@ import java.util.UUID;
 
 import org.apache.commons.codec.digest.DigestUtils;
 
-import io.zdp.api.model.v1.GetTransactionsResponse;
-import io.zdp.api.model.v1.GetTransactionsResponse.Transaction;
+import io.zdp.api.model.v1.ListTransactionsResponse;
+import io.zdp.api.model.v1.ListTransactionsResponse.Transaction;
 
 public class TestGetTransactionsResponse extends BaseModelTest {
 
 	public void test() throws Exception {
 
-		GetTransactionsResponse resp = new GetTransactionsResponse();
+		ListTransactionsResponse resp = new ListTransactionsResponse();
 
 		ZonedDateTime utc = ZonedDateTime.now(ZoneOffset.UTC);
 

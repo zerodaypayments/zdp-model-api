@@ -7,6 +7,15 @@ public class GetPublicKeyRequest implements Serializable {
 
 	private String privateKey;
 
+	public GetPublicKeyRequest() {
+		super();
+	}
+
+	public GetPublicKeyRequest(String privateKey) {
+		super();
+		this.privateKey = privateKey;
+	}
+
 	public String getPrivateKey() {
 		return privateKey;
 	}

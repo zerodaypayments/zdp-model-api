@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class GetTransferDetailsResponse extends BaseResponseObject {
+public class GetTransactionDetailsResponse extends BaseResponseObject {
 	
 	private String uuid;
 
@@ -95,7 +95,7 @@ public class GetTransferDetailsResponse extends BaseResponseObject {
 
 	@Override
 	public String getType() {
-		return "get-transfer-details";
+		return "get-transaction-details";
 	}
 
 	
