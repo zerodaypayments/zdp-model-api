@@ -1,11 +1,13 @@
-package io.zdp.api.model;
+package io.zdp.api.model.v1;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 @SuppressWarnings("serial")
-public class TransferDetails implements Serializable {
-
+public class GetTransferDetailsResponse extends BaseResponseObject {
+	
 	private String uuid;
 
 	private Date date;
@@ -91,4 +93,10 @@ public class TransferDetails implements Serializable {
 		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", error=" + error + ", fee=" + fee + "]";
 	}
 
+	@Override
+	public String getType() {
+		return "get-transfer-details";
+	}
+
+	
 }

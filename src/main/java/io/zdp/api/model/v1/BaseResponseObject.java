@@ -8,9 +8,13 @@ import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @SuppressWarnings("serial")
 public abstract class BaseResponseObject implements Serializable {
 
+	@JsonProperty("response-type")
 	public abstract String getType();
 
 	protected String uuid;
@@ -34,14 +38,17 @@ public abstract class BaseResponseObject implements Serializable {
 		isoDate = DateTimeFormatter.ISO_DATE_TIME.format(utc);
 	}
 
+	@JsonProperty("response-uuid")
 	public String getUuid() {
 		return uuid;
 	}
 
+	@JsonProperty("response-time")
 	public Date getDate() {
 		return date;
 	}
 
+	@JsonProperty("response-iso-date")
 	public String getIsoDate() {
 		return isoDate;
 	}

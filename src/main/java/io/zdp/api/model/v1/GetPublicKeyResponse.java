@@ -1,15 +1,15 @@
 package io.zdp.api.model.v1;
 
 @SuppressWarnings("serial")
-public class PublicKeyResponse extends BaseResponseObject {
+public class GetPublicKeyResponse extends BaseResponseObject {
 
 	private String publicKey;
 
-	public PublicKeyResponse() {
+	public GetPublicKeyResponse() {
 		super();
 	}
 
-	public PublicKeyResponse(String publicKey) {
+	public GetPublicKeyResponse(String publicKey) {
 		super();
 		this.publicKey = publicKey;
 	}
@@ -24,7 +24,7 @@ public class PublicKeyResponse extends BaseResponseObject {
 
 	@Override
 	public String getType() {
-		return "public-key-response";
+		return "get-public-key";
 	}
 
 	@Override

@@ -1,12 +1,11 @@
-package io.zdp.api.model;
+package io.zdp.api.model.v1;
 
-import java.io.Serializable;
 import java.util.Date;
 
 import org.apache.commons.lang3.StringUtils;
 
 @SuppressWarnings("serial")
-public class TransferResponse implements Serializable {
+public class TransferResponse extends BaseResponseObject {
 
 	public static final String ERROR_INVALID_TO_ADDRESS = "INVALID_TO_ADDRESS";
 	public static final String ERROR_INVALID_FROM_ADDRESS = "INVALID_FROM_ADDRESS";
@@ -21,15 +20,21 @@ public class TransferResponse implements Serializable {
 
 	private boolean submitted = true;
 
-	private String uuid = StringUtils.EMPTY;
-
-	private Date date = new Date();
+	private String txUuid;
 
 	public static TransferResponse error(String msg) {
 		TransferResponse resp = new TransferResponse();
 		resp.setError(msg);
 		resp.setSubmitted(false);
 		return resp;
+	}
+
+	public String getTxUuid() {
+		return txUuid;
+	}
+
+	public void setTxUuid(String txUuid) {
+		this.txUuid = txUuid;
 	}
 
 	public boolean isSubmitted() {
@@ -66,7 +71,12 @@ public class TransferResponse implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransferResponse [error=" + error + ", submitted=" + submitted + ", uuid=" + uuid + ", date=" + date + "]";
+		return "TransferResponse [error=" + error + ", submitted=" + submitted + ", txUuid=" + txUuid + "]";
+	}
+
+	@Override
+	public String getType() {
+		return "transfer";
 	}
 
 }

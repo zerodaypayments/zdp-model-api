@@ -2,14 +2,14 @@ package io.zdp.api.model;
 
 import java.math.BigDecimal;
 
-import io.zdp.api.model.v1.FeeResponse;
+import io.zdp.api.model.v1.GetFeeResponse;
 
 public class TestFeeResponse extends BaseModelTest {
 	
 	public void test() throws Exception {
 		
-		System.out.println(objectMapper.writeValueAsString(new FeeResponse()));
-		System.out.println(objectMapper.writeValueAsString(new FeeResponse(BigDecimal.ONE.toPlainString())));
+		System.out.println(objectMapper.writeValueAsString(new GetFeeResponse()));
+		System.out.println(objectMapper.writeValueAsString(new GetFeeResponse(BigDecimal.ONE.toPlainString())));
 		
 	}
 

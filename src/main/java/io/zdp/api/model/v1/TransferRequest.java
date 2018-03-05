@@ -1,12 +1,11 @@
-package io.zdp.api.model;
+package io.zdp.api.model.v1;
 
 import java.io.Serializable;
-import java.util.Date;
 
 @SuppressWarnings("serial")
 public class TransferRequest implements Serializable {
 
-	private byte[] publicKey;
+	private String publicKey;
 
 	private String fromAddress;
 
@@ -16,16 +15,16 @@ public class TransferRequest implements Serializable {
 
 	private String memo;
 
-	private Date date;
+	private String requestUuid;
 
-	// fromAddress + amount + toAddress signed by "from" account holder 
+	// fromAddress + amount + toAddress signed by "publicKey" account holder
 	private byte[] signature;
 
-	public byte[] getPublicKey() {
+	public String getPublicKey() {
 		return publicKey;
 	}
 
-	public void setPublicKey(byte[] publicKey) {
+	public void setPublicKey(String publicKey) {
 		this.publicKey = publicKey;
 	}
 
@@ -61,12 +60,12 @@ public class TransferRequest implements Serializable {
 		this.memo = memo;
 	}
 
-	public Date getDate() {
-		return date;
+	public String getRequestUuid() {
+		return requestUuid;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setRequestUuid(String requestUuid) {
+		this.requestUuid = requestUuid;
 	}
 
 	public byte[] getSignature() {
@@ -79,7 +78,7 @@ public class TransferRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransferRequest [fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amount=" + amount + ", memo=" + memo + ", date=" + date + "]";
+		return "TransferRequest [publicKey=" + publicKey + ", fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amount=" + amount + ", memo=" + memo + ", requestUuid=" + requestUuid + "]";
 	}
 
 }

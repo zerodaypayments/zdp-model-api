@@ -2,30 +2,34 @@ package io.zdp.api.model.v1;
 
 import org.apache.commons.lang3.StringUtils;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 /**
  * Get new account key pair
  */
 @SuppressWarnings("serial")
-public class NewAccountResponse extends BaseResponseObject {
+public class GetNewAccountResponse extends BaseResponseObject {
 
 	private String privateKey = StringUtils.EMPTY;
 
 	private String publicKey = StringUtils.EMPTY;
 
-	public NewAccountResponse() {
+	public GetNewAccountResponse() {
 		super();
 	}
 
-	public NewAccountResponse(String privateKey, String publicKey) {
+	public GetNewAccountResponse(String privateKey, String publicKey) {
 		super();
 		this.privateKey = privateKey;
 		this.publicKey = publicKey;
 	}
 
+	@JsonProperty("private-key")
 	public String getPrivateKey() {
 		return privateKey;
 	}
 
+	@JsonProperty("public-key")
 	public String getPublicKey() {
 		return publicKey;
 	}

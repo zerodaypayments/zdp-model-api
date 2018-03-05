@@ -1,16 +1,15 @@
-package io.zdp.api.model;
+package io.zdp.api.model.v1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("serial")
-public class TransactionHeadersResponse extends AccountRequest {
+public class GetTransactionsResponse extends BaseResponseObject {
 
 	public static class Transaction implements Serializable {
 		private String uuid;
-		private Date date;
+		private String time;
 		private String amount;
 
 		public String getUuid() {
@@ -21,12 +20,12 @@ public class TransactionHeadersResponse extends AccountRequest {
 			this.uuid = uuid;
 		}
 
-		public Date getDate() {
-			return date;
+		public String getTime() {
+			return time;
 		}
 
-		public void setDate(Date date) {
-			this.date = date;
+		public void setTime(String time) {
+			this.time = time;
 		}
 
 		public String getAmount() {
@@ -39,7 +38,7 @@ public class TransactionHeadersResponse extends AccountRequest {
 
 		@Override
 		public String toString() {
-			return "Transaction [uuid=" + uuid + ", date=" + date + ", amount=" + amount + "]";
+			return "Transaction [uuid=" + uuid + ", time=" + time + ", amount=" + amount + "]";
 		}
 
 	}
@@ -52,7 +51,12 @@ public class TransactionHeadersResponse extends AccountRequest {
 
 	@Override
 	public String toString() {
-		return "TransactionsResponse [transactions=" + transactions + "]";
+		return "GetTransactionsResponse [getTransactions()=" + getTransactions() + ", getType()=" + getType() + ", getUuid()=" + getUuid() + ", getDate()=" + getDate() + ", getIsoDate()=" + getIsoDate() + "]";
+	}
+
+	@Override
+	public String getType() {
+		return "get-transactions";
 	}
 
 }

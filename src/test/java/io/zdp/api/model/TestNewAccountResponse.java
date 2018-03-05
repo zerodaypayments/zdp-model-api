@@ -1,22 +1,25 @@
 package io.zdp.api.model;
 
+import java.math.BigInteger;
 import java.security.KeyPair;
 
 import org.bouncycastle.util.encoders.Hex;
 
-import io.zdp.api.model.v1.NewAccountResponse;
+import io.zdp.api.model.v1.GetNewAccountResponse;
 import io.zdp.common.crypto.CryptoUtils;
 
 public class TestNewAccountResponse extends BaseModelTest {
-	
+
 	public void test() throws Exception {
-		
-		KeyPair kp = CryptoUtils.generateECKeyPair();
-		String pubHex = Hex.toHexString( kp.getPublic().getEncoded());
-		String privHex = Hex.toHexString( kp.getPrivate().getEncoded());
-		
-		System.out.println(objectMapper.writeValueAsString(new NewAccountResponse(privHex, pubHex)));
-		
+
+		BigInteger priv = CryptoUtils.generateECPrivateKey();
+		byte[] pub = CryptoUtils.getPublicKeyFromPrivate( priv, true );
+
+		String privHex = Hex.toHexString( priv.toByteArray() );
+		String pubHex = Hex.toHexString( pub );
+
+		System.out.println( objectMapper.writeValueAsString( new GetNewAccountResponse( privHex, pubHex ) ) );
+
 	}
 
 }

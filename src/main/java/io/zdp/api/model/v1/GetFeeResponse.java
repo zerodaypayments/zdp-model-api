@@ -6,22 +6,22 @@ import org.apache.commons.lang3.StringUtils;
  * Current network fee
  */
 @SuppressWarnings("serial")
-public class FeeResponse extends BaseResponseObject {
+public class GetFeeResponse extends BaseResponseObject {
 
 	private String fee = StringUtils.EMPTY;
 
-	public FeeResponse() {
+	public GetFeeResponse() {
 		super();
 	}
 
-	public FeeResponse(String v) {
+	public GetFeeResponse(String v) {
 		this();
 		this.fee = v;
 	}
 
 	@Override
 	public String getType() {
-		return "fee";
+		return "get-fee";
 	}
 
 	public String getFee() {
