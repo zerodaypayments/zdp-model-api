@@ -5,6 +5,7 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class SubmitTransactionRequest implements Serializable {
 
+	// Base58 public key (i.e. msqA7n6vFMh9mHGez6ugSPigr9zug1UdUVnebeB7UUx9)
 	private String publicKey;
 
 	private String fromAddress;

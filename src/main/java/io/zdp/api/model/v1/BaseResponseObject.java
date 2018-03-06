@@ -8,6 +8,8 @@ import java.util.Date;
 import java.util.Random;
 import java.util.UUID;
 
+import org.apache.commons.codec.digest.DigestUtils;
+
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonProperty;
 
@@ -27,7 +29,7 @@ public abstract class BaseResponseObject implements Serializable {
 
 	{
 		// UUID
-		uuid = new UUID(rand.nextLong(), rand.nextLong()).toString();
+		uuid = DigestUtils.md5Hex(Long.toHexString(rand.nextLong())).toUpperCase();
 
 		// Date (time in ms since 1970)
 		ZonedDateTime utc = ZonedDateTime.now(ZoneOffset.UTC);
