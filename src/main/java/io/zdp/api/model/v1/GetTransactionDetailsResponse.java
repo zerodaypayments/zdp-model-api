@@ -1,9 +1,6 @@
 package io.zdp.api.model.v1;
 
-import java.io.Serializable;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 @SuppressWarnings("serial")
 public class GetTransactionDetailsResponse extends BaseResponseObject {

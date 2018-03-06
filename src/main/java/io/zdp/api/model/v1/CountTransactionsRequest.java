@@ -1,7 +1,6 @@
 package io.zdp.api.model.v1;
 
 import java.io.Serializable;
-import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class CountTransactionsRequest implements Serializable {
@@ -58,7 +57,7 @@ public class CountTransactionsRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "GetTransactionsRequest [getFrom()=" + getFrom() + ", getTo()=" + getTo() + ", getMemo()=" + getMemo() + ", getPublicKey()=" + getPublicKey() + ", getSignature()=" + Arrays.toString(getSignature()) + "]";
+		return "CountTransactionsRequest [publicKey=" + publicKey + ", from=" + from + ", to=" + to + ", memo=" + memo + "]";
 	}
 
 }

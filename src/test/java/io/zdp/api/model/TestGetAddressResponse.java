@@ -7,7 +7,7 @@ public class TestGetAddressResponse extends BaseModelTest {
 
 	public void test() throws Exception {
 
-		String pubHex = "03a5d3c374db57ff1102e24fb0b053881eab001613a147fb4f44035bf85254587f";
+		String pubHex = "xAXGxrhdz1EU8PQxLuE75tzBtmaHTpQo32NHAqBfhS6v";
 
 		String address = CryptoUtils.generateAccountUniqueAddress(pubHex);
 
