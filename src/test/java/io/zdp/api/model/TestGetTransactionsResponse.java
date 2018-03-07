@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.time.ZoneOffset;
 import java.time.ZonedDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 import java.util.UUID;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -22,8 +23,7 @@ public class TestGetTransactionsResponse extends BaseModelTest {
 		for (int i = 0; i < 4; i++) {
 			Transaction tx = new Transaction();
 			tx.setAmount(BigDecimal.TEN.toPlainString());
-			String isoDate = DateTimeFormatter.ISO_DATE_TIME.format(utc);
-			tx.setTime(isoDate);
+			tx.setDate(new Date());
 			tx.setUuid(DigestUtils.sha256Hex(UUID.randomUUID().toString()));
 
 			resp.getTransactions().add(tx);

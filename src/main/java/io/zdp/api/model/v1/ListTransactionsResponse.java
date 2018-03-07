@@ -2,6 +2,7 @@ package io.zdp.api.model.v1;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 @SuppressWarnings("serial")
@@ -11,7 +12,7 @@ public class ListTransactionsResponse extends BaseResponseObject {
 
 		private String uuid;
 
-		private String time;
+		private Date date;
 
 		private String amount;
 
@@ -23,12 +24,12 @@ public class ListTransactionsResponse extends BaseResponseObject {
 			this.uuid = uuid;
 		}
 
-		public String getTime() {
-			return time;
+		public Date getDate() {
+			return date;
 		}
 
-		public void setTime(String time) {
-			this.time = time;
+		public void setDate(Date date) {
+			this.date = date;
 		}
 
 		public String getAmount() {
@@ -41,7 +42,7 @@ public class ListTransactionsResponse extends BaseResponseObject {
 
 		@Override
 		public String toString() {
-			return "Transaction [uuid=" + uuid + ", time=" + time + ", amount=" + amount + "]";
+			return "Transaction [uuid=" + uuid + ", date=" + date + ", amount=" + amount + "]";
 		}
 
 	}

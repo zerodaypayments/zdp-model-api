@@ -24,6 +24,10 @@ public class GetFeeResponse extends BaseResponseObject {
 		return "get-fee";
 	}
 
+	public void setFee(String fee) {
+		this.fee = fee;
+	}
+
 	public String getFee() {
 		return fee;
 	}
