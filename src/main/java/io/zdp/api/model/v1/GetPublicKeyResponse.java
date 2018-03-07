@@ -29,8 +29,7 @@ public class GetPublicKeyResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "PublicKeyResponse [getPublicKey()=" + getPublicKey() + ", getType()=" + getType() + ", getUuid()="
-				+ getUuid() + ", getDate()=" + getDate() + ", getIsoDate()=" + getIsoDate() + "]";
+		return "GetPublicKeyResponse [getPublicKey()=" + getPublicKey() + ", getType()=" + getType() + "]";
 	}
 
 }

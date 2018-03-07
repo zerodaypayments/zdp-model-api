@@ -30,8 +30,7 @@ public class GetFeeResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "FeeResponse [getUuid()=" + getUuid() + ", getDate()=" + getDate() + ", getIsoDate()=" + getIsoDate()
-				+ ", getFee()=" + getFee() + "]";
+		return "GetFeeResponse [getType()=" + getType() + ", getFee()=" + getFee() + "]";
 	}
 
 }

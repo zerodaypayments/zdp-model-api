@@ -34,7 +34,7 @@ public class GetAddressResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "GetAddressResponse [uuid=" + uuid + ", date=" + date + ", isoDate=" + isoDate + "]";
+		return "GetAddressResponse [getAddress()=" + getAddress() + ", getType()=" + getType() + "]";
 	}
 
 }

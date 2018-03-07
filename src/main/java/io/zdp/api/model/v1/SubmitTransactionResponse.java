@@ -16,7 +16,7 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 	public static final String ERROR_SYSTEM = "SYSTEM_ERROR";
 	public static final String ERROR_INACTIVE_ADDRESS = "INACTIVE_ADDRESS";
 
-	private String error = StringUtils.EMPTY;
+	private String error;
 
 	private boolean submitted = true;
 
@@ -53,25 +53,9 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 		this.error = error;
 	}
 
-	public String getUuid() {
-		return uuid.toUpperCase();
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
-	}
-
-	public Date getDate() {
-		return date;
-	}
-
-	public void setDate(Date date) {
-		this.date = date;
-	}
-
 	@Override
 	public String toString() {
-		return "TransferResponse [error=" + error + ", submitted=" + submitted + ", txUuid=" + txUuid + "]";
+		return "SubmitTransactionResponse [getTxUuid()=" + getTxUuid() + ", isSubmitted()=" + isSubmitted() + ", getError()=" + getError() + ", getType()=" + getType() + ", getMetadata()=" + getMetadata() + "]";
 	}
 
 	@Override

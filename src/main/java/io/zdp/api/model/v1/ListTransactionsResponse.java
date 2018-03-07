@@ -54,7 +54,7 @@ public class ListTransactionsResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "GetTransactionsResponse [getTransactions()=" + getTransactions() + ", getType()=" + getType() + ", getUuid()=" + getUuid() + ", getDate()=" + getDate() + ", getIsoDate()=" + getIsoDate() + "]";
+		return "ListTransactionsResponse [getTransactions()=" + getTransactions() + ", getType()=" + getType() + "]";
 	}
 
 	@Override

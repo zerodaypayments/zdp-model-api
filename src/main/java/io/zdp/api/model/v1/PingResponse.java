@@ -14,8 +14,7 @@ public class PingResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "PingResponse [getUuid()=" + getUuid() + ", getDate()=" + getDate() + ", getIsoDate()=" + getIsoDate()
-				+ "]";
+		return "PingResponse [getType()=" + getType() + "]";
 	}
 
 }

@@ -1,6 +1,7 @@
 package io.zdp.api.model.v1;
 
 import java.io.Serializable;
+import java.util.Arrays;
 
 @SuppressWarnings("serial")
 public class CountTransactionsRequest implements Serializable {
@@ -8,36 +9,6 @@ public class CountTransactionsRequest implements Serializable {
 	private String publicKey;
 
 	private byte[] signature;
-
-	private String from;
-
-	private String to;
-
-	private String memo;
-
-	public String getFrom() {
-		return from;
-	}
-
-	public void setFrom(String from) {
-		this.from = from;
-	}
-
-	public String getTo() {
-		return to;
-	}
-
-	public void setTo(String to) {
-		this.to = to;
-	}
-
-	public String getMemo() {
-		return memo;
-	}
-
-	public void setMemo(String memo) {
-		this.memo = memo;
-	}
 
 	public String getPublicKey() {
 		return publicKey;
@@ -57,7 +28,7 @@ public class CountTransactionsRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "CountTransactionsRequest [publicKey=" + publicKey + ", from=" + from + ", to=" + to + ", memo=" + memo + "]";
+		return "CountTransactionsRequest [publicKey=" + publicKey + ", signature=" + Arrays.toString(signature) + "]";
 	}
 
 }

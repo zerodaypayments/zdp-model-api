@@ -49,9 +49,7 @@ public class GetNewAccountResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "NewAccountResponse [getPrivateKey()=" + getPrivateKey() + ", getPublicKey()=" + getPublicKey()
-				+ ", getType()=" + getType() + ", getUuid()=" + getUuid() + ", getDate()=" + getDate()
-				+ ", getIsoDate()=" + getIsoDate() + "]";
+		return "GetNewAccountResponse [getPrivateKey()=" + getPrivateKey() + ", getPublicKey()=" + getPublicKey() + ", getType()=" + getType() + "]";
 	}
 
 }

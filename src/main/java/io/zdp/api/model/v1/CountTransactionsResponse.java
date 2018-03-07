@@ -5,12 +5,17 @@ public class CountTransactionsResponse extends BaseResponseObject {
 
 	private long count;
 
-	public long getCount() {
-		return count;
+	public CountTransactionsResponse() {
+		super();
 	}
 
-	public void setCount(long count) {
+	public CountTransactionsResponse(long count) {
+		super();
 		this.count = count;
+	}
+
+	public long getCount() {
+		return count;
 	}
 
 	@Override

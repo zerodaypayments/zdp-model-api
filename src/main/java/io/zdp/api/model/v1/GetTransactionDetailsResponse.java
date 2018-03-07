@@ -2,10 +2,12 @@ package io.zdp.api.model.v1;
 
 import java.util.Date;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 @SuppressWarnings("serial")
 public class GetTransactionDetailsResponse extends BaseResponseObject {
-	
-	private String uuid;
+
+	private String txUuid;
 
 	private Date date;
 
@@ -17,9 +19,16 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 
 	private String memo;
 
-	private String error;
-
 	private String fee;
+
+	@JsonProperty("tx-uuid")
+	public String getTxUuid() {
+		return txUuid;
+	}
+
+	public void setTxUuid(String txUuid) {
+		this.txUuid = txUuid;
+	}
 
 	public String getFee() {
 		return fee;
@@ -27,14 +36,6 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 
 	public void setFee(String fee) {
 		this.fee = fee;
-	}
-
-	public String getUuid() {
-		return uuid;
-	}
-
-	public void setUuid(String uuid) {
-		this.uuid = uuid;
 	}
 
 	public Date getDate() {
@@ -77,17 +78,9 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 		this.memo = memo;
 	}
 
-	public String getError() {
-		return error;
-	}
-
-	public void setError(String error) {
-		this.error = error;
-	}
-
 	@Override
 	public String toString() {
-		return "TransferDetails [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", error=" + error + ", fee=" + fee + "]";
+		return "GetTransactionDetailsResponse [txUuid=" + txUuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", fee=" + fee + "]";
 	}
 
 	@Override
@@ -95,5 +88,4 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 		return "get-transaction-details";
 	}
 
-	
 }

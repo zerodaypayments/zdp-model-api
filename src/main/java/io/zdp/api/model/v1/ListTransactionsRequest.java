@@ -16,7 +16,7 @@ public class ListTransactionsRequest extends CountTransactionsRequest {
 	}
 
 	public int getPageSize() {
-		return pageSize;
+		return pageSize > 100 ? 100 : pageSize;
 	}
 
 	public void setPageSize(int pageSize) {
@@ -25,7 +25,7 @@ public class ListTransactionsRequest extends CountTransactionsRequest {
 
 	@Override
 	public String toString() {
-		return "ListTransactionsRequest [page=" + page + ", pageSize=" + pageSize + ", getFrom()=" + getFrom() + ", getTo()=" + getTo() + ", getMemo()=" + getMemo() + ", getPublicKey()=" + getPublicKey() + "]";
+		return "ListTransactionsRequest [page=" + page + ", pageSize=" + pageSize + ", getPublicKey()=" + getPublicKey() + "]";
 	}
 
 }
