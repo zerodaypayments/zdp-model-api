@@ -22,4 +22,14 @@ public class Urls {
 
 	public static final String URL_COUNT_ACCOUNT_TRANSACTIONS = "/api/v1/account/count/transactions";
 
+	// public ledger urls
+
+	public static final String URL_PUBLIC_LEDGER_TX_COUNT = "/ledger/tx/count";
+
+	public static final String URL_PUBLIC_LEDGER_TX_LIST = "/ledger/tx/list";
+
+	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_COUNT = "/ledger/accounts/count";
+
+	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_LIST = "/ledger/accounts/list";
+
 }

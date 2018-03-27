@@ -1,15 +1,15 @@
 package io.zdp.api.model.v1;
 
 @SuppressWarnings("serial")
-public class CountTransactionsResponse extends BaseResponseObject {
+public class CountResponse extends BaseResponseObject {
 
 	private long count;
 
-	public CountTransactionsResponse() {
+	public CountResponse() {
 		super();
 	}
 
-	public CountTransactionsResponse(long count) {
+	public CountResponse(long count) {
 		super();
 		this.count = count;
 	}
