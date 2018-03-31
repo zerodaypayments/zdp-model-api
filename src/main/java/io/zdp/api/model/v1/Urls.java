@@ -24,12 +24,12 @@ public class Urls {
 
 	// public ledger urls
 
-	public static final String URL_PUBLIC_LEDGER_TX_COUNT = "/ledger/tx/count";
+	public static final String URL_PUBLIC_LEDGER_TX_COUNT = "/public/ledger/tx/count";
 
-	public static final String URL_PUBLIC_LEDGER_TX_LIST = "/ledger/tx/list";
+	public static final String URL_PUBLIC_LEDGER_TX_LIST = "/public/ledger/tx/list";
 
-	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_COUNT = "/ledger/accounts/count";
+	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_COUNT = "/public/ledger/accounts/count";
 
-	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_LIST = "/ledger/accounts/list";
+	public static final String URL_PUBLIC_LEDGER_ACCOUNTS_LIST = "/public/ledger/accounts/list";
 
 }
