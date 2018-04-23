@@ -1,8 +1,9 @@
 package io.zdp.api.model.v1;
 
-import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
+import java.util.List;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Get new account key pair
@@ -14,6 +15,10 @@ public class GetNewAccountResponse extends BaseResponseObject {
 
 	private String publicKey = StringUtils.EMPTY;
 
+	private String curve = StringUtils.EMPTY;
+
+	private List<String> mnemonics = new ArrayList<>();
+
 	public GetNewAccountResponse() {
 		super();
 	}
@@ -24,12 +29,26 @@ public class GetNewAccountResponse extends BaseResponseObject {
 		this.publicKey = publicKey;
 	}
 
-	@JsonProperty("private-key")
+	public List<String> getMnemonics() {
+		return mnemonics;
+	}
+
+	public void setMnemonics(List<String> mnemonics) {
+		this.mnemonics = mnemonics;
+	}
+
+	public String getCurve() {
+		return curve;
+	}
+
+	public void setCurve(String curve) {
+		this.curve = curve;
+	}
+
 	public String getPrivateKey() {
 		return privateKey;
 	}
 
-	@JsonProperty("public-key")
 	public String getPublicKey() {
 		return publicKey;
 	}
@@ -49,7 +68,7 @@ public class GetNewAccountResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "GetNewAccountResponse [getPrivateKey()=" + getPrivateKey() + ", getPublicKey()=" + getPublicKey() + ", getType()=" + getType() + "]";
+		return "GetNewAccountResponse [privateKey=" + privateKey + ", publicKey=" + publicKey + ", curve=" + curve + ", mnemonics=" + mnemonics + "]";
 	}
 
 }

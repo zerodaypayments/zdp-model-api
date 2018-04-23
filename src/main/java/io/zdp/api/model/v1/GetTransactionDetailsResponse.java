@@ -2,12 +2,10 @@ package io.zdp.api.model.v1;
 
 import java.util.Date;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 @SuppressWarnings("serial")
 public class GetTransactionDetailsResponse extends BaseResponseObject {
 
-	private String txUuid;
+	private String uuid;
 
 	private Date date;
 
@@ -21,13 +19,12 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 
 	private String fee;
 
-	@JsonProperty("tx-uuid")
-	public String getTxUuid() {
-		return txUuid;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setTxUuid(String txUuid) {
-		this.txUuid = txUuid;
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getFee() {
@@ -80,7 +77,7 @@ public class GetTransactionDetailsResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "GetTransactionDetailsResponse [txUuid=" + txUuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", fee=" + fee + "]";
+		return "GetTransactionDetailsResponse [uuid=" + uuid + ", date=" + date + ", amount=" + amount + ", from=" + from + ", to=" + to + ", memo=" + memo + ", fee=" + fee + "]";
 	}
 
 	@Override

@@ -8,7 +8,6 @@ public class TestGetBalanceResponse extends BaseModelTest {
 
 	public void test() throws Exception {
 
-
 		System.out.println(objectMapper.writeValueAsString(new GetBalanceResponse(BigDecimal.TEN.toPlainString())));
 
 	}
