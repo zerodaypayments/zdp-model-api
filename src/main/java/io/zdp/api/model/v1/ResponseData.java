@@ -24,6 +24,8 @@ public class ResponseData implements Serializable {
 
 	private static String nodeUuid;
 
+	private String comment;
+
 	static {
 		try {
 			nodeUuid = Hex.toHexString(Hashing.ripemd160(InetAddress.getLocalHost().getHostName())).toUpperCase();
@@ -45,6 +47,14 @@ public class ResponseData implements Serializable {
 		// ISO date
 		responseIsoDate = DateTimeFormatter.ISO_DATE_TIME.format(utc);
 
+	}
+
+	public String getComment() {
+		return comment;
+	}
+
+	public void setComment(String comment) {
+		this.comment = comment;
 	}
 
 	public String getNode() {
