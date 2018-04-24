@@ -1,48 +1,31 @@
 package io.zdp.api.model.v1;
 
-import java.util.Date;
-
-import org.apache.commons.lang3.StringUtils;
-
 @SuppressWarnings("serial")
 public class SubmitTransactionResponse extends BaseResponseObject {
 
-	public static final String ERROR_INVALID_TO_ADDRESS = "INVALID_TO_ADDRESS";
-	public static final String ERROR_INVALID_FROM_ADDRESS = "INVALID_FROM_ADDRESS";
-	public static final String ERROR_INVALID_ACCOUNT = "INVALID_ACCOUNT";
+	public static final String ERROR_INVALID_TO_ACCOUNT = "INVALID_TO_ACCOUNT";
+	public static final String ERROR_INVALID_FROM_ACCOUNT = "INVALID_FROM_ACCOUNT";
 	public static final String ERROR_INVALID_AMOUNT = "INVALID_AMOUNT";
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
 	public static final String ERROR_INSUFFICIENT_FUNDS = "INSUFFICIENT_FUNDS";
 	public static final String ERROR_SYSTEM = "SYSTEM_ERROR";
-	public static final String ERROR_INACTIVE_ADDRESS = "INACTIVE_ADDRESS";
 
 	private String error;
 
-	private boolean submitted = true;
-
-	private String txUuid;
+	private String uuid;
 
 	public static SubmitTransactionResponse error(String msg) {
 		SubmitTransactionResponse resp = new SubmitTransactionResponse();
 		resp.setError(msg);
-		resp.setSubmitted(false);
 		return resp;
 	}
 
-	public String getTxUuid() {
-		return txUuid;
+	public String getUuid() {
+		return uuid;
 	}
 
-	public void setTxUuid(String txUuid) {
-		this.txUuid = txUuid;
-	}
-
-	public boolean isSubmitted() {
-		return submitted;
-	}
-
-	public void setSubmitted(boolean submitted) {
-		this.submitted = submitted;
+	public void setUuid(String uuid) {
+		this.uuid = uuid;
 	}
 
 	public String getError() {
@@ -55,7 +38,7 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "SubmitTransactionResponse [getTxUuid()=" + getTxUuid() + ", isSubmitted()=" + isSubmitted() + ", getError()=" + getError() + ", getType()=" + getType() + ", getMetadata()=" + getMetadata() + "]";
+		return "SubmitTransactionResponse [error=" + error + ", uuid=" + uuid + ", metadata=" + metadata + "]";
 	}
 
 	@Override

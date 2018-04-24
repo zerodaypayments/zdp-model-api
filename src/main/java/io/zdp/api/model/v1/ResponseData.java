@@ -73,4 +73,9 @@ public class ResponseData implements Serializable {
 		return responseIsoDate;
 	}
 
+	@Override
+	public String toString() {
+		return "ResponseData [responseUuid=" + responseUuid + ", responseDate=" + responseDate + ", responseIsoDate=" + responseIsoDate + ", comment=" + comment + "]";
+	}
+
 }

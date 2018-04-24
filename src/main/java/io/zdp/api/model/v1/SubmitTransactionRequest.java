@@ -5,12 +5,9 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class SubmitTransactionRequest implements Serializable {
 
-	// Base58 public key (i.e. msqA7n6vFMh9mHGez6ugSPigr9zug1UdUVnebeB7UUx9)
-	private String publicKey;
+	private String from;
 
-	private String fromAddress;
-
-	private String toAddress;
+	private String to;
 
 	private String amount;
 
@@ -18,31 +15,22 @@ public class SubmitTransactionRequest implements Serializable {
 
 	private String requestUuid;
 
-	// fromAddress + amount + toAddress signed by "publicKey" account holder
 	private byte[] signature;
 
-	public String getPublicKey() {
-		return publicKey;
+	public String getFrom() {
+		return from;
+	}
+	
+	public void setFrom(String from) {
+		this.from = from;
 	}
 
-	public void setPublicKey(String publicKey) {
-		this.publicKey = publicKey;
+	public String getTo() {
+		return to;
 	}
 
-	public String getFromAddress() {
-		return fromAddress;
-	}
-
-	public void setFromAddress(String fromAddress) {
-		this.fromAddress = fromAddress;
-	}
-
-	public String getToAddress() {
-		return toAddress;
-	}
-
-	public void setToAddress(String toAddress) {
-		this.toAddress = toAddress;
+	public void setTo(String to) {
+		this.to = to;
 	}
 
 	public String getAmount() {
@@ -79,7 +67,7 @@ public class SubmitTransactionRequest implements Serializable {
 
 	@Override
 	public String toString() {
-		return "TransferRequest [publicKey=" + publicKey + ", fromAddress=" + fromAddress + ", toAddress=" + toAddress + ", amount=" + amount + ", memo=" + memo + ", requestUuid=" + requestUuid + "]";
+		return "SubmitTransactionRequest [from=" + from + ", to=" + to + ", amount=" + amount + ", memo=" + memo + ", requestUuid=" + requestUuid + "]";
 	}
 
 }

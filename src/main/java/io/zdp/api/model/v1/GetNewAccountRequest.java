@@ -14,6 +14,16 @@ public class GetNewAccountRequest implements Serializable {
 
 	private String curve;
 
+	public GetNewAccountRequest() {
+		super();
+	}
+
+	public GetNewAccountRequest(Language language, String curve) {
+		super();
+		this.language = language;
+		this.curve = curve;
+	}
+
 	public String getCurve() {
 		return curve;
 	}
