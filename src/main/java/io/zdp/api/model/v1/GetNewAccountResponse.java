@@ -15,6 +15,8 @@ public class GetNewAccountResponse extends BaseResponseObject {
 
 	private String publicKey = StringUtils.EMPTY;
 
+	private String accountUuid = StringUtils.EMPTY;
+
 	private String curve = StringUtils.EMPTY;
 
 	private List<String> mnemonics = new ArrayList<>();
@@ -23,10 +25,12 @@ public class GetNewAccountResponse extends BaseResponseObject {
 		super();
 	}
 
-	public GetNewAccountResponse(String privateKey, String publicKey) {
-		super();
-		this.privateKey = privateKey;
-		this.publicKey = publicKey;
+	public String getAccountUuid() {
+		return accountUuid;
+	}
+
+	public void setAccountUuid(String accountUuid) {
+		this.accountUuid = accountUuid;
 	}
 
 	public List<String> getMnemonics() {

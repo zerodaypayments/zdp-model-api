@@ -6,24 +6,23 @@ import java.util.List;
 import io.zdp.api.model.v1.GetNewAccountResponse;
 import io.zdp.crypto.Curves;
 import io.zdp.crypto.Keys;
+import io.zdp.crypto.key.ZDPKeyPair;
 import io.zdp.crypto.mnemonics.Mnemonics;
 import io.zdp.crypto.mnemonics.Mnemonics.Language;
 
 public class TestNewAccountResponse extends BaseModelTest {
 
 	public void test() throws Exception {
+		
+		ZDPKeyPair kp = ZDPKeyPair.createRandom(Curves.DEFAULT_CURVE);
 
-		BigInteger priv = Keys.generateRandomPrivateKey(Curves.DEFAULT_CURVE);
-
-		System.out.println(priv);
-
-		String privHex = Keys.toZDPPrivateKey(priv);
-		String pubHex = Keys.toZDPPublicKey(priv, Curves.DEFAULT_CURVE);
-
-		GetNewAccountResponse resp = new GetNewAccountResponse(privHex, pubHex);
+		GetNewAccountResponse resp = new GetNewAccountResponse();
 		resp.setCurve(Curves.DEFAULT_CURVE);
+		resp.setAccountUuid(kp.getAccountUuid());
+		resp.setPrivateKey(kp.getPrivateKeyAsBase58());
+		resp.setPublicKey(kp.getPublicKeyAsBase58());
 
-		List<String> words = Mnemonics.generateWords(Language.ENGLISH, privHex);
+		List<String> words = Mnemonics.generateWords(Language.ENGLISH, kp.getPrivateKeyAsBase58());
 		resp.setMnemonics(words);
 
 		assertEquals(24, words.size());
@@ -34,7 +33,7 @@ public class TestNewAccountResponse extends BaseModelTest {
 
 		System.out.println(fromWords);
 
-		assertEquals(priv, fromWords);
+		assertEquals(kp.getPrivateKeyAsBigInteger(), fromWords);
 
 	}
 

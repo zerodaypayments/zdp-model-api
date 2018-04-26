@@ -5,19 +5,19 @@ import java.io.Serializable;
 @SuppressWarnings("serial")
 public class GetBalanceRequest implements Serializable {
 
-	private String publicKey;
+	private String accountUuid;
 
-	public String getPublicKey() {
-		return publicKey;
+	public String getAccountUuid() {
+		return accountUuid;
 	}
 
-	public void setPublicKey(String publicKey) {
-		this.publicKey = publicKey;
+	public void setAccountUuid(String accountUuid) {
+		this.accountUuid = accountUuid;
 	}
 
 	@Override
 	public String toString() {
-		return "GetBalanceRequest [publicKey=" + publicKey + "]";
+		return "GetBalanceRequest [accountUuid=" + accountUuid + "]";
 	}
 
 }

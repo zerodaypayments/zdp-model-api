@@ -17,10 +17,20 @@ public class SubmitTransactionRequest implements Serializable {
 
 	private byte[] signature;
 
+	private String publicKey;
+
+	public String getPublicKey() {
+		return publicKey;
+	}
+
+	public void setPublicKey(String publicKey) {
+		this.publicKey = publicKey;
+	}
+
 	public String getFrom() {
 		return from;
 	}
-	
+
 	public void setFrom(String from) {
 		this.from = from;
 	}
