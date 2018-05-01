@@ -38,7 +38,7 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 
 	@Override
 	public String toString() {
-		return "SubmitTransactionResponse [error=" + error + ", uuid=" + uuid + ", metadata=" + metadata + "]";
+		return "SubmitTransactionResponse [error=" + error + ", uuid=" + uuid + ", metadata=" + getResponseMetadata() + "]";
 	}
 
 	@Override

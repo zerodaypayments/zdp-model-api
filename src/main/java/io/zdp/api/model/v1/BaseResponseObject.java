@@ -7,10 +7,10 @@ public abstract class BaseResponseObject implements Serializable {
 
 	public abstract String getType();
 
-	protected ResponseData metadata = new ResponseData();
+	protected ResponseData responseMetadata = new ResponseData();
 
-	public ResponseData getMetadata() {
-		return metadata;
+	public ResponseData getResponseMetadata() {
+		return responseMetadata;
 	}
 
 }

@@ -5,7 +5,6 @@ import java.util.List;
 
 import io.zdp.api.model.v1.GetNewAccountResponse;
 import io.zdp.crypto.Curves;
-import io.zdp.crypto.Keys;
 import io.zdp.crypto.key.ZDPKeyPair;
 import io.zdp.crypto.mnemonics.Mnemonics;
 import io.zdp.crypto.mnemonics.Mnemonics.Language;
@@ -18,7 +17,7 @@ public class TestNewAccountResponse extends BaseModelTest {
 
 		GetNewAccountResponse resp = new GetNewAccountResponse();
 		resp.setCurve(Curves.DEFAULT_CURVE);
-		resp.setAccountUuid(kp.getAccountUuid());
+		resp.setAccountUuid(kp.getZDPAccount().getUuid());
 		resp.setPrivateKey(kp.getPrivateKeyAsBase58());
 		resp.setPublicKey(kp.getPublicKeyAsBase58());
 
