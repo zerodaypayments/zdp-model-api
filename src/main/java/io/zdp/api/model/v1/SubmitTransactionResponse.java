@@ -9,6 +9,8 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
 	public static final String ERROR_INSUFFICIENT_FUNDS = "INSUFFICIENT_FUNDS";
 	public static final String ERROR_SYSTEM = "SYSTEM_ERROR";
+	public static final String ERROR_TX_REPLAY = "TX_SUBMISSION_ERROR_4000";
+	public static final String ERROR_TX_SIGNATURE_UNAUTHORIZED = "TX_SUBMISSION_ERROR_5000";
 
 	private String error;
 
