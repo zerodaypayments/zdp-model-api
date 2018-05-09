@@ -1,9 +1,15 @@
 package io.zdp.api.model.v1;
 
 import java.io.Serializable;
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
+import io.zdp.crypto.Hashing;
 
 @SuppressWarnings("serial")
-public class SubmitTransactionRequest implements Serializable {
+public class TransferRequest implements Serializable {
 
 	private String from;
 
@@ -18,6 +24,9 @@ public class SubmitTransactionRequest implements Serializable {
 	private byte[] signature;
 
 	private String publicKey;
+
+	@JsonIgnore
+	private BigDecimal amountBD;
 
 	public String getPublicKey() {
 		return publicKey;
@@ -47,8 +56,15 @@ public class SubmitTransactionRequest implements Serializable {
 		return amount;
 	}
 
+	public BigDecimal getAmountAsBigDecimal() {
+		return this.amountBD;
+	}
+
 	public void setAmount(String amount) {
 		this.amount = amount;
+		this.amountBD = new BigDecimal(getAmount());
+		this.amountBD = this.amountBD.setScale(8, RoundingMode.CEILING);
+
 	}
 
 	public String getMemo() {
@@ -73,6 +89,10 @@ public class SubmitTransactionRequest implements Serializable {
 
 	public void setSignature(byte[] signature) {
 		this.signature = signature;
+	}
+
+	public byte[] getTransferUuid() {
+		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo());
 	}
 
 	@Override

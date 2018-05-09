@@ -1,7 +1,7 @@
 package io.zdp.api.model.v1;
 
 @SuppressWarnings("serial")
-public class SubmitTransactionResponse extends BaseResponseObject {
+public class TransferResponse extends BaseResponseObject {
 
 	public static final String ERROR_INVALID_TO_ACCOUNT = "INVALID_TO_ACCOUNT";
 	public static final String ERROR_INVALID_FROM_ACCOUNT = "INVALID_FROM_ACCOUNT";
@@ -16,8 +16,8 @@ public class SubmitTransactionResponse extends BaseResponseObject {
 
 	private String uuid;
 
-	public static SubmitTransactionResponse error(String msg) {
-		SubmitTransactionResponse resp = new SubmitTransactionResponse();
+	public static TransferResponse error(String msg) {
+		TransferResponse resp = new TransferResponse();
 		resp.setError(msg);
 		return resp;
 	}
