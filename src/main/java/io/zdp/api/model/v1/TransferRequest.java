@@ -3,6 +3,9 @@ package io.zdp.api.model.v1;
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
+import java.util.UUID;
+
+import org.apache.commons.lang3.StringUtils;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
@@ -24,6 +27,10 @@ public class TransferRequest implements Serializable {
 	private byte[] signature;
 
 	private String publicKey;
+
+	public byte[] getUniqueTransactionUuid() {
+		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo() + getMemo() + getRequestUuid());
+	}
 
 	@JsonIgnore
 	private BigDecimal amountBD;
@@ -76,6 +83,11 @@ public class TransferRequest implements Serializable {
 	}
 
 	public String getRequestUuid() {
+
+		if (StringUtils.isBlank(requestUuid)) {
+			requestUuid = UUID.randomUUID().toString();
+		}
+
 		return requestUuid;
 	}
 
@@ -89,10 +101,6 @@ public class TransferRequest implements Serializable {
 
 	public void setSignature(byte[] signature) {
 		this.signature = signature;
-	}
-
-	public byte[] getTransferUuid() {
-		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo());
 	}
 
 	@Override
