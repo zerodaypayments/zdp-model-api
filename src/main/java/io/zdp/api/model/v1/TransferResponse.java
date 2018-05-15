@@ -1,5 +1,7 @@
 package io.zdp.api.model.v1;
 
+import java.nio.charset.StandardCharsets;
+
 @SuppressWarnings("serial")
 public class TransferResponse extends BaseResponseObject {
 
@@ -20,6 +22,10 @@ public class TransferResponse extends BaseResponseObject {
 		TransferResponse resp = new TransferResponse();
 		resp.setError(msg);
 		return resp;
+	}
+
+	public byte[] toHashData() {
+		return (uuid + error).getBytes(StandardCharsets.UTF_8);
 	}
 
 	public String getUuid() {
