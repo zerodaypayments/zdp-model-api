@@ -16,7 +16,17 @@ public class VoteRequest implements Serializable {
 
 	private byte[] accountUuid;
 
-	private byte[] requestUuid = Hashing.whirlpool(UUID.randomUUID().toString());
+	private byte[] requestUuid = Hashing.ripemd160(UUID.randomUUID().toString());
+
+	private byte[] transferUuid;
+
+	public byte[] getTransferUuid() {
+		return transferUuid;
+	}
+
+	public void setTransferUuid(byte[] transferUuid) {
+		this.transferUuid = transferUuid;
+	}
 
 	public byte[] getRequestUuid() {
 		return requestUuid;
