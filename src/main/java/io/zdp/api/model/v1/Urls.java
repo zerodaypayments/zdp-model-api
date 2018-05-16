@@ -2,7 +2,7 @@ package io.zdp.api.model.v1;
 
 public class Urls {
 
-	public static final String URL_PING = "/ping";
+	public static final String URL_PING = "/api/ping";
 
 	public static final String URL_GET_TX_FEE = "/api/fee";
 

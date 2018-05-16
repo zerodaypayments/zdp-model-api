@@ -13,7 +13,8 @@ public class VoteResponse extends BaseResponseObject {
 	public static enum Status {
 		APPROVED, //
 		APPROVED_NO_ACCOUNT_ON_FILE, //
-		REJECTED_ACCOUNT_IN_PROGRESS //
+		REJECTED_ACCOUNT_IN_PROGRESS, //
+		REJECTED_REPLAY_DETECTED //
 	}
 
 	private String balance;
