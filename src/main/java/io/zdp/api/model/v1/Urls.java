@@ -8,9 +8,9 @@ public class Urls {
 
 	public static final String URL_GET_NEW_ACCOUNT = "/api/account/new";
 
-	public static final String URL_GET_BALANCE = "/api/v1/account/balance";
+	public static final String URL_GET_BALANCE = "/api/account/balance";
 
-	public static final String URL_TRANSFER = "/api/v1/transfer";
+	public static final String URL_TRANSFER = "/api/transfer";
 
 	public static final String URL_GET_TX_DETAILS = "/api/tx/";
 
