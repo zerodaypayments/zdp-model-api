@@ -69,8 +69,12 @@ public class TransferRequest implements Serializable {
 
 	public void setAmount(String amount) {
 		this.amount = amount;
-		this.amountBD = new BigDecimal(getAmount());
-		this.amountBD = this.amountBD.setScale(8, RoundingMode.CEILING);
+		if (amount != null) {
+			this.amountBD = new BigDecimal(getAmount());
+			this.amountBD = this.amountBD.setScale(8, RoundingMode.CEILING);
+		} else {
+			this.amountBD = null;
+		}
 
 	}
 
