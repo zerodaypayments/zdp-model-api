@@ -17,6 +17,12 @@
 
 	<dependencies>
 
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-collections4</artifactId>
+			<version>4.1</version>
+		</dependency>
+
 		<!-- ZDP dependencies -->
 		<dependency>
 			<groupId>io.zdp</groupId>
