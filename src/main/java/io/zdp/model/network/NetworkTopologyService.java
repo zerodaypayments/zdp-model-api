@@ -21,68 +21,69 @@ import io.zdp.crypto.Signing;
 
 public class NetworkTopologyService {
 
-	private Logger log = LoggerFactory.getLogger(this.getClass());
+	private Logger log = LoggerFactory.getLogger( this.getClass() );
 
-	private List<NetworkNode> nodes;
+	private List < NetworkNode > nodes;
 
 	private String vnlFileContent;
 
 	private Date lastRefreshDate;
 
-	private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+	//private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+	private String vnlUrl = "http://localhost:8081/vnl.json";
 
-	public synchronized void init() {
+	public synchronized void init ( ) {
 
-		log.debug("Refreshing network configuration: " + vnlUrl);
+		log.debug( "Refreshing network configuration: " + vnlUrl );
 
 		try {
 			// Download public VNL (List of Validation Nodes) file
-			final URL url = new URL(vnlUrl);
+			final URL url = new URL( vnlUrl );
 
 			final ObjectMapper jsonMapper = new ObjectMapper();
-			jsonMapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+			jsonMapper.disable( DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES );
 
-			try (InputStream in = url.openStream()) {
-				vnlFileContent = IOUtils.toString(in, StandardCharsets.UTF_8);
+			try ( InputStream in = url.openStream() ) {
+				vnlFileContent = IOUtils.toString( in, StandardCharsets.UTF_8 );
 			}
 
-			final List<NetworkNode> topology = jsonMapper.readValue(vnlFileContent, new TypeReference<List<NetworkNode>>() {
-			});
+			final List < NetworkNode > topology = jsonMapper.readValue( vnlFileContent, new TypeReference < List < NetworkNode > >() {
+			} );
 
-			if (nodes == null || false == CollectionUtils.isEqualCollection(topology, nodes)) {
+			if ( nodes == null || false == CollectionUtils.isEqualCollection( topology, nodes ) ) {
 
-				log.debug("VNL: " + vnlFileContent);
+				log.debug( "VNL: " + vnlFileContent );
 
 				nodes = topology;
 
-				for (NetworkNode node : nodes) {
-					node.setNodeType(NetworkNodeType.VALIDATING);
+				for ( NetworkNode node : nodes ) {
+					node.setNodeType( NetworkNodeType.VALIDATING );
 				}
 
-				log.debug("Loaded/reloaded list of validation nodes: " + nodes);
+				log.debug( "Loaded/reloaded list of validation nodes: " + nodes );
 
 				lastRefreshDate = new Date();
 
 			} else {
-				log.debug("No change in network topology");
+				log.debug( "No change in network topology" );
 			}
 
-		} catch (IOException ioe) {
-			log.error("Can't load VNL file: ", ioe);
-			System.out.println("Can't load VNL file: " + ioe.getMessage());
-		} catch (Exception e) {
-			log.error("Error: ", e);
+		} catch ( IOException ioe ) {
+			log.error( "Can't load VNL file: ", ioe );
+			System.out.println( "Can't load VNL file: " + ioe.getMessage() );
+		} catch ( Exception e ) {
+			log.error( "Error: ", e );
 		}
 
 	}
 
-	public NetworkNode getRandomNode() {
-		return getNodes().get(ThreadLocalRandom.current().nextInt(getNodes().size()));
+	public NetworkNode getRandomNode ( ) {
+		return getAllNodes().get( ThreadLocalRandom.current().nextInt( getAllNodes().size() ) );
 	}
 
-	public List<NetworkNode> getNodes() {
+	public List < NetworkNode > getAllNodes ( ) {
 
-		if (nodes == null) {
+		if ( nodes == null ) {
 			init();
 		}
 
@@ -90,25 +91,25 @@ public class NetworkTopologyService {
 
 	}
 
-	public NetworkNode getNodeByUuid(String uuid) {
-		for (NetworkNode n : getNodes()) {
-			if (uuid.equals(n.getUuid())) {
+	public NetworkNode getNodeByUuid ( String uuid ) {
+		for ( NetworkNode n : getAllNodes() ) {
+			if ( uuid.equals( n.getUuid() ) ) {
 				return n;
 			}
 		}
 		return null;
 	}
 
-	public boolean isValidServerRequest(String serverUuid, byte[] data, byte[] signature) {
+	public boolean isValidServerRequest ( String serverUuid, byte [ ] data, byte [ ] signature ) {
 
-		NetworkNode node = this.getNodeByUuid(serverUuid);
+		NetworkNode node = this.getNodeByUuid( serverUuid );
 
-		if (node != null) {
+		if ( node != null ) {
 
 			try {
-				return Signing.isValidSignature(node.getECPublicKey(), data, signature);
-			} catch (Exception e) {
-				log.error("Error: ", e);
+				return Signing.isValidSignature( node.getECPublicKey(), data, signature );
+			} catch ( Exception e ) {
+				log.error( "Error: ", e );
 			}
 		}
 
@@ -116,19 +117,19 @@ public class NetworkTopologyService {
 
 	}
 
-	public String getVnlUrl() {
+	public String getVnlUrl ( ) {
 		return vnlUrl;
 	}
 
-	public void setVnlUrl(String vnlUrl) {
+	public void setVnlUrl ( String vnlUrl ) {
 		this.vnlUrl = vnlUrl;
 	}
 
-	public String getVnlFileContent() {
+	public String getVnlFileContent ( ) {
 		return vnlFileContent;
 	}
 
-	public Date getLastRefreshDate() {
+	public Date getLastRefreshDate ( ) {
 		return lastRefreshDate;
 	}
 
