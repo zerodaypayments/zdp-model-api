@@ -25,6 +25,10 @@ public class NetworkNode implements Serializable {
 
 	private int httpPort;
 
+	private String amqHostname;
+
+	private int amqPort;
+
 	private String uuid;
 
 	private String publicKey;
@@ -36,6 +40,22 @@ public class NetworkNode implements Serializable {
 	private PrivateKey priv;
 
 	private NetworkNodeType nodeType;
+
+	public String getAmqHostname() {
+		return amqHostname;
+	}
+
+	public void setAmqHostname(String amqHostname) {
+		this.amqHostname = amqHostname;
+	}
+
+	public int getAmqPort() {
+		return amqPort;
+	}
+
+	public void setAmqPort(int amqPort) {
+		this.amqPort = amqPort;
+	}
 
 	public String getHttpEndpointUrl() {
 		return null;

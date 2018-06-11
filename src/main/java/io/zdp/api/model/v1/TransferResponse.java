@@ -13,7 +13,7 @@ public class TransferResponse extends BaseResponseObject {
 	public static final String ERROR_SYSTEM = "SYSTEM_ERROR";
 	public static final String ERROR_TX_REPLAY = "TX_SUBMISSION_ERROR_4000";
 	public static final String ERROR_TX_SIGNATURE_UNAUTHORIZED = "TX_SUBMISSION_ERROR_5000";
-	
+
 	public static final String ERROR_REJECTED = "REJECTED";
 
 	private String error;

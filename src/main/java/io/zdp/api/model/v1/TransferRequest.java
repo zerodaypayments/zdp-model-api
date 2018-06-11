@@ -7,8 +7,6 @@ import java.util.UUID;
 
 import org.apache.commons.lang3.StringUtils;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-
 import io.zdp.crypto.Hashing;
 
 @SuppressWarnings("serial")
@@ -28,15 +26,26 @@ public class TransferRequest implements Serializable {
 
 	private String publicKey;
 
+	private long time = System.currentTimeMillis();
+
 	public byte[] getUniqueTransactionUuid() {
 		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo() + getMemo() + getRequestUuid());
 	}
 
-	@JsonIgnore
-	private BigDecimal amountBD;
-
 	public String getPublicKey() {
 		return publicKey;
+	}
+
+	public long getTime() {
+		return time;
+	}
+
+	public void setTime(long time) {
+		this.time = time;
+	}
+
+	public void setAmount(String amount) {
+		this.amount = amount;
 	}
 
 	public void setPublicKey(String publicKey) {
@@ -61,21 +70,6 @@ public class TransferRequest implements Serializable {
 
 	public String getAmount() {
 		return amount;
-	}
-
-	public BigDecimal getAmountAsBigDecimal() {
-		return this.amountBD;
-	}
-
-	public void setAmount(String amount) {
-		this.amount = amount;
-		if (amount != null) {
-			this.amountBD = new BigDecimal(getAmount());
-			this.amountBD = this.amountBD.setScale(8, RoundingMode.CEILING);
-		} else {
-			this.amountBD = null;
-		}
-
 	}
 
 	public String getMemo() {
@@ -105,6 +99,12 @@ public class TransferRequest implements Serializable {
 
 	public void setSignature(byte[] signature) {
 		this.signature = signature;
+	}
+
+	public BigDecimal getAmountAsBigDecimal() {
+		BigDecimal bd = new BigDecimal(getAmount());
+		bd = bd.setScale(8, RoundingMode.CEILING);
+		return bd;
 	}
 
 	@Override
