@@ -29,7 +29,7 @@ public class TransferRequest implements Serializable {
 	private long time = System.currentTimeMillis();
 
 	public byte[] getUniqueTransactionUuid() {
-		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo() + getMemo() + getRequestUuid());
+		return Hashing.hashTransactionSignature(getFrom() + getAmount() + getTo() + getMemo() + getRequestUuid() + time);
 	}
 
 	public String getPublicKey() {
