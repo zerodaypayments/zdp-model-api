@@ -4,6 +4,8 @@ import java.io.Serializable;
 import java.security.PrivateKey;
 import java.security.PublicKey;
 
+import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.apache.commons.lang3.builder.ToStringStyle;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -13,13 +15,13 @@ import io.zdp.crypto.Keys;
 import io.zdp.crypto.key.ZDPKeyPair;
 
 /**
- * 	Validation nodes
+ * Validation nodes
  *
  */
 @SuppressWarnings("serial")
 public class NetworkNode implements Serializable {
 
-	private final Logger log = LoggerFactory.getLogger(NetworkNode.class);
+	private static final Logger log = LoggerFactory.getLogger(NetworkNode.class);
 
 	private String hostname;
 
@@ -133,7 +135,7 @@ public class NetworkNode implements Serializable {
 
 	@Override
 	public String toString() {
-		return "NetworkNode [log=" + log + ", hostname=" + hostname + ", httpPort=" + httpPort + ", uuid=" + uuid + ", publicKey=" + publicKey + ", privateKey=" + privateKey + ", nodeType=" + nodeType + "]";
+		return ToStringBuilder.reflectionToString(this, ToStringStyle.MULTI_LINE_STYLE);
 	}
 
 	@Override
