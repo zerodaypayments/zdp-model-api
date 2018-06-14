@@ -27,8 +27,8 @@ public class NetworkTopologyService {
 
 	private String vnlFileContent;
 
-//	private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
-		private String vnlUrl = "http://localhost:8081/vnl.json";
+		private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+//	private String vnlUrl = "http://localhost:8081/vnl.json";
 
 	private Set<NetworkTopologyListener> changeListeners = new HashSet<>();
 
@@ -82,6 +82,18 @@ public class NetworkTopologyService {
 
 	public void addChangeListener(NetworkTopologyListener listener) {
 		this.changeListeners.add(listener);
+	}
+
+	public List<NetworkNode> getAllBut(NetworkNode node) {
+
+		List<NetworkNode> nodes = this.getAllNodes();
+
+		if (nodes != null) {
+			nodes.remove(node);
+		}
+
+		return nodes;
+
 	}
 
 	public List<NetworkNode> getAllNodes() {
