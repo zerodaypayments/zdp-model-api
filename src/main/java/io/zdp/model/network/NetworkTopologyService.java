@@ -7,6 +7,7 @@ import java.nio.charset.StandardCharsets;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.ThreadLocalRandom;
 
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.io.IOUtils;
@@ -27,8 +28,8 @@ public class NetworkTopologyService {
 
 	private String vnlFileContent;
 
-		private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
-//	private String vnlUrl = "http://localhost:8081/vnl.json";
+	private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+	//	private String vnlUrl = "http://localhost:8081/vnl.json";
 
 	private Set<NetworkTopologyListener> changeListeners = new HashSet<>();
 
@@ -142,6 +143,10 @@ public class NetworkTopologyService {
 
 	public String getVnlFileContent() {
 		return vnlFileContent;
+	}
+
+	public NetworkNode getRandomNode() {
+		return getAllNodes().get(ThreadLocalRandom.current().nextInt(getAllNodes().size()));
 	}
 
 }
