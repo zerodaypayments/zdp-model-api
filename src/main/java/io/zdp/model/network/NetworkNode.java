@@ -147,7 +147,6 @@ public class NetworkNode implements Serializable {
 		result = prime * result + ((hostname == null) ? 0 : hostname.hashCode());
 		result = prime * result + httpPort;
 		result = prime * result + ((nodeType == null) ? 0 : nodeType.hashCode());
-		result = prime * result + ((privateKey == null) ? 0 : privateKey.hashCode());
 		result = prime * result + ((publicKey == null) ? 0 : publicKey.hashCode());
 		result = prime * result + ((uuid == null) ? 0 : uuid.hashCode());
 		return result;
@@ -177,11 +176,6 @@ public class NetworkNode implements Serializable {
 		if (httpPort != other.httpPort)
 			return false;
 		if (nodeType != other.nodeType)
-			return false;
-		if (privateKey == null) {
-			if (other.privateKey != null)
-				return false;
-		} else if (!privateKey.equals(other.privateKey))
 			return false;
 		if (publicKey == null) {
 			if (other.publicKey != null)

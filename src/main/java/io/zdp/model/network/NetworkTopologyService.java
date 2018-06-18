@@ -4,6 +4,8 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -28,8 +30,8 @@ public class NetworkTopologyService {
 
 	private String vnlFileContent;
 
-	private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
-	//	private String vnlUrl = "http://localhost:8081/vnl.json";
+	// private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+	private String vnlUrl = "http://localhost:8081/vnl.json";
 
 	private Set<NetworkTopologyListener> changeListeners = new HashSet<>();
 
@@ -50,16 +52,16 @@ public class NetworkTopologyService {
 
 			final List<NetworkNode> topology = jsonMapper.readValue(vnlFileContent, new TypeReference<List<NetworkNode>>() {
 			});
+			
+			for (NetworkNode node : topology) {
+				node.setNodeType(NetworkNodeType.VALIDATING);
+			}
 
 			if (nodes == null || false == CollectionUtils.isEqualCollection(topology, nodes)) {
 
 				log.debug("VNL: " + vnlFileContent);
 
-				nodes = topology;
-
-				for (NetworkNode node : nodes) {
-					node.setNodeType(NetworkNodeType.VALIDATING);
-				}
+				nodes = new ArrayList<>(topology);
 
 				log.debug("Loaded/reloaded list of validation nodes: " + nodes);
 
@@ -87,13 +89,13 @@ public class NetworkTopologyService {
 
 	public List<NetworkNode> getAllBut(NetworkNode node) {
 
-		List<NetworkNode> nodes = this.getAllNodes();
+		List<NetworkNode> list = new ArrayList<>(this.getAllNodes());
 
-		if (nodes != null) {
-			nodes.remove(node);
+		if (list != null) {
+			list.remove(node);
 		}
 
-		return nodes;
+		return list;
 
 	}
 
