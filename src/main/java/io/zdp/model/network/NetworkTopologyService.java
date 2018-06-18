@@ -30,8 +30,8 @@ public class NetworkTopologyService {
 
 	private String vnlFileContent;
 
-	// private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
-	private String vnlUrl = "http://localhost:8081/vnl.json";
+	 private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+//	private String vnlUrl = "http://localhost:8081/vnl.json";
 
 	private Set<NetworkTopologyListener> changeListeners = new HashSet<>();
 
