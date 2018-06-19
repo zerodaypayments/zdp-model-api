@@ -5,6 +5,7 @@ import java.nio.charset.StandardCharsets;
 @SuppressWarnings("serial")
 public class TransferResponse extends BaseResponseObject {
 
+	public static final String ERROR_EXPIRED = "EXPIRED";
 	public static final String ERROR_INVALID_TO_ACCOUNT = "INVALID_TO_ACCOUNT";
 	public static final String ERROR_INVALID_FROM_ACCOUNT = "INVALID_FROM_ACCOUNT";
 	public static final String ERROR_INVALID_AMOUNT = "INVALID_AMOUNT";

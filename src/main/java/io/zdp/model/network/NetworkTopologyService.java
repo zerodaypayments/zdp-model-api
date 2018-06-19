@@ -30,8 +30,8 @@ public class NetworkTopologyService {
 
 	private String vnlFileContent;
 
-	 private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
-//	private String vnlUrl = "http://localhost:8081/vnl.json";
+	// private String vnlUrl = "https://zdp.s3.amazonaws.com/vnl.json";
+	private String vnlUrl = "http://localhost:8081/vnl.json";
 
 	private Set<NetworkTopologyListener> changeListeners = new HashSet<>();
 
@@ -48,11 +48,14 @@ public class NetworkTopologyService {
 
 			try (InputStream in = url.openStream()) {
 				vnlFileContent = IOUtils.toString(in, StandardCharsets.UTF_8);
+			} catch (Exception e) {
+				log.error("Can't get VNL file: " + vnlUrl);
+				return;
 			}
 
 			final List<NetworkNode> topology = jsonMapper.readValue(vnlFileContent, new TypeReference<List<NetworkNode>>() {
 			});
-			
+
 			for (NetworkNode node : topology) {
 				node.setNodeType(NetworkNodeType.VALIDATING);
 			}
@@ -103,6 +106,10 @@ public class NetworkTopologyService {
 
 		if (nodes == null) {
 			init();
+		}
+
+		if (nodes == null) {
+			return Collections.emptyList();
 		}
 
 		return nodes;
