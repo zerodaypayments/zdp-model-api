@@ -10,6 +10,7 @@ public class TransferResponse extends BaseResponseObject {
 	public static final String ERROR_INVALID_TO_ACCOUNT = "INVALID_TO_ACCOUNT";
 	public static final String ERROR_INVALID_FROM_ACCOUNT = "INVALID_FROM_ACCOUNT";
 	public static final String ERROR_INVALID_AMOUNT = "INVALID_AMOUNT";
+	public static final String ERROR_LOCKED_ACCOUNTS = "LOCKED_ACCOUNTS";
 	public static final String ERROR_LOCKED_FROM_ACCOUNT = "LOCKED_FROM_ACCOUNT";
 	public static final String ERROR_LOCKED_TO_ACCOUNT = "LOCKED_TO_ACCOUNT";
 	public static final String ERROR_UNAUTHORIZED = "UNAUTHORIZED";
